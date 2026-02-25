@@ -1,5 +1,5 @@
 {
-  "name": "@textea/json-viewer-docs",
+  "name": "@compliance-theater/json-viewer-docs",
   "private": true,
   "engines": {
     "node": ">=16.0.0"
@@ -10,7 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@textea/json-viewer": "workspace:^",
+    "@compliance-theater/json-viewer": "workspace:^",
     "gray-matter": "^4.0.3",
     "next": "^13.5.7",
     "nextra": "2.13.3",

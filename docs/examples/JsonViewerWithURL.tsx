@@ -1,4 +1,4 @@
-import { defineDataType, JsonViewer } from '@textea/json-viewer'
+import { defineDataType, JsonViewer } from '@compliance-theater/json-viewer'
 import type { FC } from 'react'
 
 import { useNextraTheme } from '../hooks/useTheme'

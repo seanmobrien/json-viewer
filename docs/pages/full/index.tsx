@@ -20,14 +20,14 @@ import type {
   JsonViewerOnChange,
   JsonViewerOnDelete,
   JsonViewerTheme
-} from '@textea/json-viewer'
+} from '@compliance-theater/json-viewer'
 import {
   applyValue,
   defineDataType,
   deleteValue,
   JsonViewer,
   stringType
-} from '@textea/json-viewer'
+} from '@compliance-theater/json-viewer'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { FC } from 'react'

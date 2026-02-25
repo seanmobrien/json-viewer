@@ -1,4 +1,4 @@
-import { defineEasyType, JsonViewer } from '@textea/json-viewer'
+import { defineEasyType, JsonViewer } from '@compliance-theater/json-viewer'
 import type { FC } from 'react'
 
 import { useNextraTheme } from '../hooks/useTheme'

@@ -15,7 +15,7 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
   publish:
-    name: 'Publish @textea/json-viewer'
+    name: 'Publish @compliance-theater/json-viewer'
     needs: release
     if: needs.release.outputs.release_created
     runs-on: ubuntu-latest

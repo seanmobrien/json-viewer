@@ -1,13 +1,19 @@
 {
   "compilerOptions": {
     "paths": {
-      "@textea/json-viewer": ["../src/index"]
+      "@compliance-theater/json-viewer": [
+        "../src/index"
+      ]
     },
     "jsx": "preserve",
     "incremental": true,
     "noEmit": true,
     "target": "ES2020",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,6 +24,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

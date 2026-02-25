@@ -1,8 +1,8 @@
 {
-  "name": "@textea/json-viewer",
+  "name": "@compliance-theater/json-viewer",
   "description": "Interactive Json Viewer, but not only a json viewer",
-  "packageManager": "pnpm@9.10.0",
-  "version": "4.0.1",
+  "version": "4.0.2",
+  "private": true,
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -48,7 +48,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "pnpm --filter \"@textea/json-viewer-docs\" run dev",
+    "dev": "pnpm --filter \"@compliance-theater/json-viewer-docs\" run dev",
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
@@ -71,16 +71,16 @@
   "peerDependencies": {
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@mui/material": "^6",
-    "react": "^17 || ^18",
-    "react-dom": "^17 || ^18"
+    "@mui/material": "^6 || ^7 || ^8",
+    "react": "^17 || ^18 || ^19",
+    "react-dom": "^17 || ^18 || ^19"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
-    "@mui/material": "^6.1.10",
+    "@mui/material": "^6 || ^7 || ^8",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
@@ -111,8 +111,8 @@
     "lint-staged": "^15.2.10",
     "pinst": "^3.0.0",
     "prettier": "^3.4.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^17 || ^18 || ^19",
+    "react-dom": "^17 || ^18 || ^19",
     "rollup": "^4.28.1",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-swc3": "^0.12.1",
