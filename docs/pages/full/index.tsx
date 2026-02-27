@@ -21,13 +21,7 @@ import type {
   JsonViewerOnDelete,
   JsonViewerTheme
 } from '@compliance-theater/json-viewer'
-import {
-  applyValue,
-  defineDataType,
-  deleteValue,
-  JsonViewer,
-  stringType
-} from '@compliance-theater/json-viewer'
+import { applyValue, defineDataType, deleteValue, JsonViewer, stringType } from '@compliance-theater/json-viewer'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { FC } from 'react'
@@ -40,7 +34,7 @@ const allowedDomains = ['i.imgur.com']
 // this url is copied from: https://beta.reactjs.org/learn/passing-props-to-a-component
 const avatar = 'https://i.imgur.com/1bX5QH6.jpg'
 
-function aPlusB (a: number, b: number) {
+function aPlusB(a: number, b: number) {
   return a + b
 }
 const aPlusBConst = function (a: number, b: number) {
@@ -54,9 +48,7 @@ const loopObject = {
 
 loopObject.self = loopObject
 
-const loopArray = [
-  loopObject
-]
+const loopArray = [loopObject]
 
 loopArray[1] = loopArray
 
@@ -68,7 +60,8 @@ map.set({}, 'world')
 
 const set = new Set([1, 2, 3])
 
-const superLongString = '1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'
+const superLongString =
+  '1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'
 
 const example = {
   avatar,
@@ -115,9 +108,7 @@ const example = {
 }
 
 const KeyRenderer: JsonViewerKeyRenderer = ({ path }) => {
-  return (
-    <del aria-label='I dont like this number'>&quot;{path.slice(-1)}&quot;</del>
-  )
+  return <del aria-label="I dont like this number">&quot;{path.slice(-1)}&quot;</del>
 }
 KeyRenderer.when = (props) => props.value === 114.514
 
@@ -134,42 +125,34 @@ const imageDataType = defineDataType<string>({
     return false
   },
   Component: (props) => {
-    return (
-      <Image
-        height={48}
-        width={48}
-        src={props.value}
-        alt={props.value}
-        style={{ display: 'inline-block' }}
-      />
-    )
+    return <Image height={48} width={48} src={props.value} alt={props.value} style={{ display: 'inline-block' }} />
   }
 })
 
 const LinkIcon = (props: SvgIconProps) => (
   // <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' strokeWidth='2' stroke='currentColor' fill='none' strokeLinecap='round' strokeLinejoin='round'>
   <SvgIcon {...props}>
-    <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
-    <path stroke='currentcolor' d='M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5' fill='none'></path>
-    <path stroke='currentcolor' d='M10 14l10 -10'></path>
-    <path stroke='currentcolor' d='M15 4l5 0l0 5' fill='none'></path>
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path stroke="currentcolor" d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" fill="none"></path>
+    <path stroke="currentcolor" d="M10 14l10 -10"></path>
+    <path stroke="currentcolor" d="M15 4l5 0l0 5" fill="none"></path>
   </SvgIcon>
 )
 
 const linkType: DataType<string> = {
   ...stringType,
-  is (value) {
+  is(value) {
     return typeof value === 'string' && value.startsWith('http')
   },
   PostComponent: (props) => (
-    <Box sx={{
-      display: 'inline-block',
-      marginLeft: 1,
-      color: 'primary.main',
-      textDecoration: 'underline'
-    }}
-    >
-      <Link href={props.value} target='_blank' rel='noopener noreferrer'>
+    <Box
+      sx={{
+        display: 'inline-block',
+        marginLeft: 1,
+        color: 'primary.main',
+        textDecoration: 'underline'
+      }}>
+      <Link href={props.value} target="_blank" rel="noopener noreferrer">
         Open
         <LinkIcon sx={{ strokeWidth: 2 }} />
       </Link>
@@ -184,14 +167,13 @@ const urlType = defineDataType<URL>({
     return (
       <a
         href={url}
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         style={{
           cursor: 'pointer',
           color: '#1976d2',
           textDecoration: 'underline'
-        }}
-      >
+        }}>
         {url}
       </a>
     )
@@ -211,7 +193,7 @@ const IndexPage: FC = () => {
   const [highlightUpdates, setHighlightUpdates] = useState(true)
   useEffect(() => {
     const loop = () => {
-      setSrc(src => ({
+      setSrc((src) => ({
         ...src,
         timer: src.timer + 1
       }))
@@ -223,12 +205,7 @@ const IndexPage: FC = () => {
     <div>
       <AppBar>
         <Toolbar>
-          <Typography
-            variant='h6'
-            noWrap
-            component='div'
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
+          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             JSON viewer
           </Typography>
         </Toolbar>
@@ -244,88 +221,60 @@ const IndexPage: FC = () => {
           paddingY: '10px',
           minHeight: '64px',
           marginTop: '64px'
-        }}
-      >
+        }}>
         <FormControlLabel
-          control={(
-            <Switch
-              checked={editable}
-              onChange={event => setEditable(event.target.checked)}
-            />
-          )}
-          label='Editable'
+          control={<Switch checked={editable} onChange={(event) => setEditable(event.target.checked)} />}
+          label="Editable"
         />
         <FormControlLabel
-          control={(
-            <Switch
-              checked={highlightUpdates}
-              onChange={event => setHighlightUpdates(event.target.checked)}
-            />
-          )}
-          label='Highlight Updates'
+          control={
+            <Switch checked={highlightUpdates} onChange={(event) => setHighlightUpdates(event.target.checked)} />
+          }
+          label="Highlight Updates"
         />
         <FormControlLabel
-          control={(
-            <Switch
-              checked={displayDataTypes}
-              onChange={event => setDisplayDataTypes(event.target.checked)}
-            />
-          )}
-          label='DisplayDataTypes'
+          control={
+            <Switch checked={displayDataTypes} onChange={(event) => setDisplayDataTypes(event.target.checked)} />
+          }
+          label="DisplayDataTypes"
         />
         <FormControlLabel
-          control={(
-            <Switch
-              checked={displaySize}
-              onChange={event => setDisplaySize(event.target.checked)}
-            />
-          )}
-          label='DisplayObjectSize'
+          control={<Switch checked={displaySize} onChange={(event) => setDisplaySize(event.target.checked)} />}
+          label="DisplayObjectSize"
         />
         <FormControlLabel
-          control={(
-            <Switch
-              checked={displayComma}
-              onChange={event => setDisplayComma(event.target.checked)}
-            />
-          )}
-          label='DisplayComma'
+          control={<Switch checked={displayComma} onChange={(event) => setDisplayComma(event.target.checked)} />}
+          label="DisplayComma"
         />
         <TextField
-          label='indentWidth'
+          label="indentWidth"
           value={indent}
-          size='small'
-          type='number'
-          onChange={
-            event => {
-              const indent = parseInt(event.target.value)
-              if (indent > -1 && indent < 10) {
-                setIndent(indent)
-              }
+          size="small"
+          type="number"
+          onChange={(event) => {
+            const indent = parseInt(event.target.value)
+            if (indent > -1 && indent < 10) {
+              setIndent(indent)
             }
-          }
+          }}
         />
         <TextField
-          label='groupArraysAfterLength'
+          label="groupArraysAfterLength"
           value={groupArraysAfterLength}
-          size='small'
-          type='number'
-          onChange={
-            event => {
-              const groupArraysAfterLength = parseInt(event.target.value)
-              if (groupArraysAfterLength > -1 && groupArraysAfterLength < 500) {
-                setGroupArraysAfterLength(groupArraysAfterLength)
-              }
+          size="small"
+          type="number"
+          onChange={(event) => {
+            const groupArraysAfterLength = parseInt(event.target.value)
+            if (groupArraysAfterLength > -1 && groupArraysAfterLength < 500) {
+              setGroupArraysAfterLength(groupArraysAfterLength)
             }
-          }
+          }}
         />
-        <FormControl
-          size='small'
-        >
+        <FormControl size="small">
           <InputLabel>Theme</InputLabel>
           <Select
             value={themeKey}
-            label='Theme'
+            label="Theme"
             onChange={(event) => {
               if (event.target.value === 'ocean') {
                 setTheme(ocean)
@@ -334,12 +283,11 @@ const IndexPage: FC = () => {
                 setTheme(event.target.value as any)
                 setThemeKey(event.target.value as any)
               }
-            }}
-          >
-            <MenuItem value='auto'>auto</MenuItem>
-            <MenuItem value='light'>light</MenuItem>
-            <MenuItem value='dark'>dark</MenuItem>
-            <MenuItem value='ocean'>ocean</MenuItem>
+            }}>
+            <MenuItem value="auto">auto</MenuItem>
+            <MenuItem value="light">light</MenuItem>
+            <MenuItem value="dark">dark</MenuItem>
+            <MenuItem value="ocean">ocean</MenuItem>
           </Select>
         </FormControl>
       </Box>
@@ -356,36 +304,20 @@ const IndexPage: FC = () => {
         displayComma={displayComma}
         groupArraysAfterLength={groupArraysAfterLength}
         keyRenderer={KeyRenderer}
-        valueTypes={[
-          urlType,
-          linkType,
-          imageDataType
-        ]}
-        onAdd={
-          useCallback<JsonViewerOnAdd>(
-            (path) => {
-              const key = prompt('Key:')
-              if (key === null) return
-              const value = prompt('Value:')
-              if (value === null) return
-              setSrc(src => applyValue(src, [...path, key], value))
-            }, []
-          )
-        }
-        onChange={
-          useCallback<JsonViewerOnChange>(
-            (path, oldValue, newValue) => {
-              setSrc(src => applyValue(src, path, newValue))
-            }, []
-          )
-        }
-        onDelete={
-          useCallback<JsonViewerOnDelete>(
-            (path, value) => {
-              setSrc(src => deleteValue(src, path, value))
-            }, []
-          )
-        }
+        valueTypes={[urlType, linkType, imageDataType]}
+        onAdd={useCallback<JsonViewerOnAdd>((path) => {
+          const key = prompt('Key:')
+          if (key === null) return
+          const value = prompt('Value:')
+          if (value === null) return
+          setSrc((src) => applyValue(src, [...path, key], value))
+        }, [])}
+        onChange={useCallback<JsonViewerOnChange>((path, oldValue, newValue) => {
+          setSrc((src) => applyValue(src, path, newValue))
+        }, [])}
+        onDelete={useCallback<JsonViewerOnDelete>((path, value) => {
+          setSrc((src) => deleteValue(src, path, value))
+        }, [])}
         sx={{
           paddingX: 2
         }}
