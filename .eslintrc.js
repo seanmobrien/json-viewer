@@ -11,8 +11,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'standard'
+    'plugin:react/jsx-runtime'
   ],
   globals: {
     Atomics: 'readonly', SharedArrayBuffer: 'readonly'
@@ -137,6 +136,10 @@ module.exports = {
     ]
   },
   overrides: [
+    {
+      files: ['.eslintrc.js', 'eslint.config.mjs'],
+      env: { node: true }
+    },
     {
       files: ['*.d.ts'],
       rules: {

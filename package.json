@@ -57,7 +57,8 @@
     "postpack": "pinst --enable",
     "lint": "npx eslint . --cache --fix",
     "lint:ci": "npx eslint . --cache --max-warnings 0",
-    "build": "tsc && rollup -c rollup.config.ts --configPlugin swc3"
+    "build": "tsc && rollup -c rollup.config.ts --configPlugin swc3",
+    "build:publish": "tsc && rollup -c rollup.config.ts --configPlugin swc3"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -97,7 +98,6 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^2.1.8",
     "eslint": "^8.57.1",
-    "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "npm:eslint-plugin-i@^2.29.1",
     "eslint-plugin-n": "^17.14.0",
     "eslint-plugin-promise": "^7.2.1",
