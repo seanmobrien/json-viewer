@@ -405,8 +405,9 @@ describe('function getPathValue', () => {
   })
 
   test('should not works with WeakSet', () => {
-    const set = new WeakSet()
-    set.add({})
-    expect(getPathValue(set, [0])).to.eq(null)
+    hideConsoleOutput().setup();
+    const set = new WeakSet();
+    set.add({});
+    expect(getPathValue(set, [0])).to.eq(null);
   })
 })
