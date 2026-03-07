@@ -5,6 +5,7 @@ module.exports = {
       version: 'detect'
     }
   },
+  ignorePatterns: ['dist', 'build', 'node_modules', 'coverage', 'public', 'yarn.lock'],
   env: {
     browser: true, es6: true
   },
