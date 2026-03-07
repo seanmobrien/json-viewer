@@ -1,11 +1,13 @@
+import { afterEach, vi, type MockInstance } from 'vitest';
+
 export type MockedConsole = {
-    error?: jest.SpyInstance;
-    log?: jest.SpyInstance;
-    info?: jest.SpyInstance;
-    group?: jest.SpyInstance;
-    groupEnd?: jest.SpyInstance;
-    table?: jest.SpyInstance;
-    warn?: jest.SpyInstance;
+    error?: MockInstance;
+    log?: MockInstance;
+    info?: MockInstance;
+    group?: MockInstance;
+    groupEnd?: MockInstance;
+    table?: MockInstance;
+    warn?: MockInstance;
     setup: () => void;
     dispose: () => void;
     [Symbol.dispose]: () => void;
@@ -26,15 +28,15 @@ export const hideConsoleOutput = () => {
         info: undefined,
         warn: undefined,
         setup: () => {
-            ret.error ??= jest.spyOn(console, 'error').mockImplementation(() => { });
-            ret.log ??= jest.spyOn(console, 'log').mockImplementation(() => { });
-            ret.group ??= jest.spyOn(console, 'group').mockImplementation(() => { });
-            ret.groupEnd ??= jest
+            ret.error ??= vi.spyOn(console, 'error').mockImplementation(() => { });
+            ret.log ??= vi.spyOn(console, 'log').mockImplementation(() => { });
+            ret.group ??= vi.spyOn(console, 'group').mockImplementation(() => { });
+            ret.groupEnd ??= vi
                 .spyOn(console, 'groupEnd')
                 .mockImplementation(() => { });
-            ret.table ??= jest.spyOn(console, 'table').mockImplementation(() => { });
-            ret.info ??= jest.spyOn(console, 'info').mockImplementation(() => { });
-            ret.warn ??= jest.spyOn(console, 'warn').mockImplementation(() => { });
+            ret.table ??= vi.spyOn(console, 'table').mockImplementation(() => { });
+            ret.info ??= vi.spyOn(console, 'info').mockImplementation(() => { });
+            ret.warn ??= vi.spyOn(console, 'warn').mockImplementation(() => { });
         },
         dispose: () => {
             ret[Symbol.dispose]();
