@@ -5,14 +5,14 @@ module.exports = {
       version: 'detect'
     }
   },
+  ignorePatterns: ['dist', 'build', 'node_modules', 'coverage', 'public', 'yarn.lock'],
   env: {
     browser: true, es6: true
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'standard'
+    'plugin:react/jsx-runtime'
   ],
   globals: {
     Atomics: 'readonly', SharedArrayBuffer: 'readonly'
@@ -137,6 +137,10 @@ module.exports = {
     ]
   },
   overrides: [
+    {
+      files: ['.eslintrc.js', 'eslint.config.mjs'],
+      env: { node: true }
+    },
     {
       files: ['*.d.ts'],
       rules: {

@@ -61,7 +61,7 @@ If you want to preview images directly in your JSON, you can define a data type 
   <Tab>
 
 ```jsx
-import { defineDataType } from '@textea/json-viewer'
+import { defineDataType } from '@compliance-theater/json-viewer'
 
 const imageType = defineDataType({
   is: (value) => {
@@ -91,7 +91,7 @@ const imageType = defineDataType({
 
   <Tab>
 ```tsx
-import { defineDataType } from '@textea/json-viewer'
+import { defineDataType } from '@compliance-theater/json-viewer'
 
 const imageType = defineDataType<string>({
   is: (value) => {
@@ -141,7 +141,7 @@ Let's add support for the [`URL`](https://developer.mozilla.org/en-US/docs/Web/A
 <Tabs items={['JS', 'TS']}>
   <Tab>
 ```jsx
-import { defineDataType } from '@textea/json-viewer'
+import { defineDataType } from '@compliance-theater/json-viewer'
 
 const urlType = defineDataType({
   is: (value) => value instanceof URL,
@@ -168,7 +168,7 @@ const urlType = defineDataType({
 
   <Tab>
 ```tsx
-import { defineDataType } from '@textea/json-viewer'
+import { defineDataType } from '@compliance-theater/json-viewer'
 
 const urlType = defineDataType<URL>({
   is: (value) => value instanceof URL,
@@ -222,7 +222,7 @@ In this example, we will **extend the built-in `stringType`** and add a button t
 <Tabs items={['JS', 'TS']}>
   <Tab>
 ```jsx
-import { defineDataType, JsonViewer, stringType } from '@textea/json-viewer'
+import { defineDataType, JsonViewer, stringType } from '@compliance-theater/json-viewer'
 import { Button } from '@mui/material'
 
 const linkType = defineDataType({
@@ -252,7 +252,7 @@ const linkType = defineDataType({
 
   <Tab>
 ```tsx
-import { defineDataType, JsonViewer, stringType } from '@textea/json-viewer'
+import { defineDataType, JsonViewer, stringType } from '@compliance-theater/json-viewer'
 import { Button } from '@mui/material'
 
 const linkType = defineDataType<string>({
@@ -288,7 +288,7 @@ By default, `Date` values are displayed using the `toLocaleString` method. You w
 <Tabs items={['JS', 'TS']}>
   <Tab>
 ```jsx
-import { defineEasyType } from '@textea/json-viewer'
+import { defineEasyType } from '@compliance-theater/json-viewer'
 
 const myDateType = defineEasyType({
   is: (value) => value instanceof Date,
@@ -301,7 +301,7 @@ const myDateType = defineEasyType({
 
   <Tab>
 ```tsx
-import { defineEasyType } from '@textea/json-viewer'
+import { defineEasyType } from '@compliance-theater/json-viewer'
 
 const myDateType = defineEasyType<Date>({
   is: (value) => value instanceof Date,

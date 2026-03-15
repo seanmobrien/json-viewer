@@ -1,5 +1,5 @@
 export default {
-  logo: '@textea/json-viewer',
+  logo: '@compliance-theater/json-viewer',
   docsRepositoryBase: 'https://github.com/TexteaInc/json-viewer/tree/main/docs',
   project: {
     link: 'https://github.com/TexteaInc/json-viewer'

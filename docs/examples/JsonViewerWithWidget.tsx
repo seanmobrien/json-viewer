@@ -1,6 +1,6 @@
 import type { SvgIconProps } from '@mui/material'
 import { Button, SvgIcon } from '@mui/material'
-import { defineDataType, JsonViewer, stringType } from '@textea/json-viewer'
+import { defineDataType, JsonViewer, stringType } from '@compliance-theater/json-viewer'
 import type { FC } from 'react'
 
 import { useNextraTheme } from '../hooks/useTheme'

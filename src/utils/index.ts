@@ -5,7 +5,7 @@ import type { DataItemProps, DataType, EditorProps, Path } from '../type'
 
 // reference: https://github.com/immerjs/immer/blob/main/src/utils/common.ts
 const objectCtorString = Object.prototype.constructor.toString()
-export function isPlainObject (value: any): boolean {
+export function isPlainObject(value: any): boolean {
   if (!value || typeof value !== 'object') return false
 
   const proto = Object.getPrototypeOf(value)
@@ -17,7 +17,7 @@ export function isPlainObject (value: any): boolean {
   return typeof Ctor === 'function' && Function.toString.call(Ctor) === objectCtorString
 }
 
-function shouldShallowCopy (value: any) {
+function shouldShallowCopy(value: any) {
   if (!value) return false
 
   return (
@@ -28,7 +28,7 @@ function shouldShallowCopy (value: any) {
   )
 }
 
-function shallowCopy (value: any) {
+function shallowCopy(value: any) {
   if (Array.isArray(value)) return Array.prototype.slice.call(value)
   if (value instanceof Set) return new Set(value)
   if (value instanceof Map) return new Map(value)
@@ -38,7 +38,7 @@ function shallowCopy (value: any) {
   return value
 }
 
-function _applyValue (input: any, path: (string | number)[], value: any, visitedMapping = new Map<any, any>()) {
+function _applyValue(input: any, path: (string | number)[], value: any, visitedMapping = new Map<any, any>()) {
   if (typeof input !== 'object' || input === null) {
     if (path.length !== 0) {
       throw new Error('path is incorrect')
@@ -73,14 +73,14 @@ function _applyValue (input: any, path: (string | number)[], value: any, visited
 /**
  * Apply a value to a given path of an object.
  */
-export function applyValue (input: any, path: (string | number)[], value: any) {
+export function applyValue(input: any, path: (string | number)[], value: any) {
   return _applyValue(input, path, value)
 }
 
 /**
  * Delete a value from a given path of an object.
  */
-export function deleteValue (input: any, path: (string | number)[], value: any) {
+export function deleteValue(input: any, path: (string | number)[], value: any) {
   if (typeof input !== 'object' || input === null) {
     if (path.length !== 0) {
       throw new Error('path is incorrect')
@@ -112,7 +112,7 @@ export function deleteValue (input: any, path: (string | number)[], value: any) 
 /**
  * Define custom data types for any data structure
  */
-export function defineDataType<ValueType = unknown> ({
+export function defineDataType<ValueType = unknown>({
   is,
   serialize,
   deserialize,
@@ -209,7 +209,7 @@ export const isCycleReference = (
   return false
 }
 
-export function getValueSize (value: any): number {
+export function getValueSize(value: any): number {
   if (value === null || undefined) {
     return 0
   } else if (Array.isArray(value)) {
@@ -226,7 +226,7 @@ export function getValueSize (value: any): number {
   return 1
 }
 
-export function segmentArray<T> (arr: T[], size: number): T[][] {
+export function segmentArray<T>(arr: T[], size: number): T[][] {
   const result: T[][] = []
   let index = 0
   while (index < arr.length) {
@@ -245,10 +245,10 @@ export function segmentArray<T> (arr: T[], size: number): T[][] {
  * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
  * @returns
  */
-export function safeStringify (obj: any, space?: string | number) {
+export function safeStringify(obj: any, space?: string | number) {
   const seenValues: any[] = []
 
-  function replacer (key: string | number, value: any) {
+  function replacer(key: string | number, value: any) {
     // https://github.com/GoogleChromeLabs/jsbi/issues/30
     if (typeof value === 'bigint') return value.toString()
 
@@ -294,7 +294,7 @@ export function safeStringify (obj: any, space?: string | number) {
   return JSON.stringify(obj, replacer, space)
 }
 
-export async function copyString (value: string) {
+export async function copyString(value: string) {
   if ('clipboard' in navigator) {
     try {
       await navigator.clipboard.writeText(value)
@@ -330,7 +330,7 @@ export interface PathValueCustomGetter {
   handler: (value: unknown, key: unknown) => unknown
 }
 
-export function pathValueDefaultGetter (value: any, key: any): unknown {
+export function pathValueDefaultGetter(value: any, key: any): unknown {
   if (value === null || value === undefined) {
     return null
   }
@@ -357,7 +357,7 @@ export function pathValueDefaultGetter (value: any, key: any): unknown {
  * Passing custom getters allows you to handle custom data structures.
  * @experimental This function is not yet stable and may change in the future.
  */
-export function getPathValue<T = unknown, R = unknown> (
+export function getPathValue<T = unknown, R = unknown>(
   obj: T,
   path: Path,
   customGetters: PathValueCustomGetter[] = []

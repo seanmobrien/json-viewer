@@ -10,14 +10,12 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # yarn
-**/.yarn/*
-**/!.yarn/patches
-**/!.yarn/plugins
-**/!.yarn/releases
-**/!.yarn/sdks
-**/!.yarn/versions
-
+.yarn/*
+!.yarn/releases
+!.gitkeep
 node_modules
+
+# Build output
 dist
 dist-ssr
 coverage

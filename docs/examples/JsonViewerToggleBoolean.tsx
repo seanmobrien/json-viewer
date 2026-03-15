@@ -1,5 +1,5 @@
-import type { JsonViewerOnChange } from '@textea/json-viewer'
-import { applyValue, booleanType, defineDataType, defineEasyType, JsonViewer } from '@textea/json-viewer'
+import type { JsonViewerOnChange } from '@compliance-theater/json-viewer'
+import { applyValue, booleanType, defineDataType, defineEasyType, JsonViewer } from '@compliance-theater/json-viewer'
 import type { FC } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 

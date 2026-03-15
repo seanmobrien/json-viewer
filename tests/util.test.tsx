@@ -1,3 +1,4 @@
+import { hideConsoleOutput } from './mock-console'
 import { describe, expect, test } from 'vitest'
 
 import { applyValue, deleteValue, isCycleReference } from '../src'
@@ -22,32 +23,32 @@ describe('function applyValue', () => {
   })
 
   test('undefined', () => {
-    patches.forEach(patch => {
+    patches.forEach((patch) => {
       const newValue = applyValue(undefined, [], patch)
       expect(newValue).is.eq(patch)
     })
   })
 
   test('null', () => {
-    patches.forEach(patch => {
+    patches.forEach((patch) => {
       const newValue = applyValue(null, [], patch)
       expect(newValue).is.eq(patch)
     })
   })
 
   test('number', () => {
-    patches.forEach(patch => {
+    patches.forEach((patch) => {
       const newValue = applyValue(1, [], patch)
       expect(newValue).is.eq(patch)
     })
-    patches.forEach(patch => {
+    patches.forEach((patch) => {
       const newValue = applyValue(114514, [], patch)
       expect(newValue).is.eq(patch)
     })
   })
 
   test('string', () => {
-    patches.forEach(patch => {
+    patches.forEach((patch) => {
       const newValue = applyValue('', [], patch)
       expect(newValue).is.eq(patch)
     })
@@ -113,32 +114,32 @@ describe('function deleteValue', () => {
   })
 
   test('undefined', () => {
-    patches.forEach(patch => {
+    patches.forEach((patch) => {
       const newValue = deleteValue(undefined, [], patch)
       expect(newValue).is.eq(patch)
     })
   })
 
   test('null', () => {
-    patches.forEach(patch => {
+    patches.forEach((patch) => {
       const newValue = deleteValue(null, [], patch)
       expect(newValue).is.eq(patch)
     })
   })
 
   test('number', () => {
-    patches.forEach(patch => {
+    patches.forEach((patch) => {
       const newValue = deleteValue(1, [], patch)
       expect(newValue).is.eq(patch)
     })
-    patches.forEach(patch => {
+    patches.forEach((patch) => {
       const newValue = deleteValue(114514, [], patch)
       expect(newValue).is.eq(patch)
     })
   })
 
   test('string', () => {
-    patches.forEach(patch => {
+    patches.forEach((patch) => {
       const newValue = deleteValue('', [], patch)
       expect(newValue).is.eq(patch)
     })
@@ -213,11 +214,7 @@ describe('function segmentArray', () => {
   test('case 1', () => {
     const array = [1, 2, 3, 4, 5]
     const result = segmentArray(array, 2)
-    expect(result).to.deep.eq([
-      [1, 2],
-      [3, 4],
-      [5]
-    ])
+    expect(result).to.deep.eq([[1, 2], [3, 4], [5]])
   })
 
   test('case 2', () => {
@@ -232,17 +229,13 @@ describe('function segmentArray', () => {
   test('case 3', () => {
     const array = [1, 2, 3, 4, 5]
     const result = segmentArray(array, 5)
-    expect(result).to.deep.eq([
-      [1, 2, 3, 4, 5]
-    ])
+    expect(result).to.deep.eq([[1, 2, 3, 4, 5]])
   })
 
   test('case 4', () => {
     const array = [1, 2, 3, 4, 5]
     const result = segmentArray(array, 6)
-    expect(result).to.deep.eq([
-      [1, 2, 3, 4, 5]
-    ])
+    expect(result).to.deep.eq([[1, 2, 3, 4, 5]])
   })
 })
 
@@ -288,7 +281,9 @@ describe('function circularStringify', () => {
     obj.a.b.e = obj.e
     // @ts-expect-error ignore
     obj.e.g = obj.a.b
-    expect(safeStringify(obj)).to.eq('{"a":{"b":{"c":1,"d":2,"e":{"f":3,"g":"[Circular]"}}},"e":{"f":3,"g":"[Circular]"}}')
+    expect(safeStringify(obj)).to.eq(
+      '{"a":{"b":{"c":1,"d":2,"e":{"f":3,"g":"[Circular]"}}},"e":{"f":3,"g":"[Circular]"}}'
+    )
   })
 
   test('should works with ES6 Map', () => {
@@ -405,6 +400,7 @@ describe('function getPathValue', () => {
   })
 
   test('should not works with WeakSet', () => {
+    hideConsoleOutput().setup()
     const set = new WeakSet()
     set.add({})
     expect(getPathValue(set, [0])).to.eq(null)

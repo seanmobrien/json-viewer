@@ -167,7 +167,7 @@ export const DataKeyPair: FC<DataKeyPairProps> = (props) => {
 
     return false
   }, [highlightUpdates, prevValue, value])
-  const highlightContainer = useRef<HTMLElement>()
+  const highlightContainer = useRef<HTMLElement>(undefined)
   useEffect(() => {
     if (highlightContainer.current && isHighlight && 'animate' in highlightContainer.current) {
       highlightContainer.current.animate(

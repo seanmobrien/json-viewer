@@ -3,24 +3,24 @@ import Button from '@mui/material/Button'
 import { Tab, Tabs } from 'nextra-theme-docs'
 import { JsonViewerPreview } from '../examples/JsonViewerPreview'
 
-# @textea/json-viewer
+# @compliance-theater/json-viewer
 
 ## Overview
 
 > **Makes data visualization a breeze!**
 
-`@textea/json-viewer` allows you to display JSON data in a readable and user-friendly format. But it's not just limited to JSON - you can use it to view **ANY** kind of data. The library is highly customizable and supports 100% TypeScript, making it easy to modify and tailor to your specific needs.
+`@compliance-theater/json-viewer` allows you to display JSON data in a readable and user-friendly format. But it's not just limited to JSON - you can use it to view **ANY** kind of data. The library is highly customizable and supports 100% TypeScript, making it easy to modify and tailor to your specific needs.
 
 ## Getting Started
 
 ### Installation
 
-`@textea/json-viewer` is using [Material-UI](https://mui.com/) as the base component library, so you need to install it and its peer dependencies first.
+`@compliance-theater/json-viewer` is using [Material-UI](https://mui.com/) as the base component library, so you need to install it and its peer dependencies first.
 
 <Tabs items={['npm', 'yarn', 'pnpm']}>
-  <Tab label="npm">``` npm install @textea/json-viewer @mui/material @emotion/react @emotion/styled ```</Tab>
-  <Tab label="yarn">``` yarn add @textea/json-viewer @mui/material @emotion/react @emotion/styled ```</Tab>
-  <Tab label="pnpm">``` pnpm add @textea/json-viewer @mui/material @emotion/react @emotion/styled ```</Tab>
+  <Tab label="npm">``` npm install @compliance-theater/json-viewer @mui/material @emotion/react @emotion/styled ```</Tab>
+  <Tab label="yarn">``` yarn add @compliance-theater/json-viewer @mui/material @emotion/react @emotion/styled ```</Tab>
+  <Tab label="pnpm">``` pnpm add @compliance-theater/json-viewer @mui/material @emotion/react @emotion/styled ```</Tab>
 </Tabs>
 
 You can also use it directly from a CDN:
@@ -30,7 +30,7 @@ You can also use it directly from a CDN:
 <html lang="en">
   <body>
     <div id="json-viewer"></div>
-    <script src="https://cdn.jsdelivr.net/npm/@textea/json-viewer@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@compliance-theater/json-viewer@3"></script>
 
     <script>
       new JsonViewer({
@@ -46,7 +46,7 @@ You can also use it directly from a CDN:
 ### Basic Example
 
 ```tsx
-import { JsonViewer } from '@textea/json-viewer'
+import { JsonViewer } from '@compliance-theater/json-viewer'
 
 const object = {
   /* my json object */
