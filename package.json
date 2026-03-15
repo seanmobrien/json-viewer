@@ -58,7 +58,8 @@
     "lint": "npx eslint . --cache --fix",
     "lint:ci": "npx eslint . --cache --max-warnings 0",
     "build": "tsc && rollup -c rollup.config.ts --configPlugin swc3",
-    "build:publish": "tsc && rollup -c rollup.config.ts --configPlugin swc3"
+    "build:publish": "tsc && rollup -c rollup.config.ts --configPlugin swc3",
+    "link:clean": "node scripts/link-clean.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

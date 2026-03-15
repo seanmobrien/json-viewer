@@ -15,6 +15,9 @@ lerna-debug.log*
 !.gitkeep
 node_modules
 
+# npm lock file (project uses pnpm/yarn)
+package-lock.json
+
 # Build output
 dist
 dist-ssr
