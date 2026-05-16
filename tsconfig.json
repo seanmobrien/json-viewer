@@ -8,17 +8,11 @@
     "noEmit": false,
     "incremental": true,
     "declaration": true,
+    "types": ["node", "react", "react-dom"],
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "composite": true
   },
-  "include": [
-    "./src"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/__tests__/**",
-    "**/__mocks__/**",
-    "**/tests/**",
-  ]
+  "include": ["./src"],
+  "exclude": ["node_modules", "**/__tests__/**", "**/__mocks__/**", "**/tests/**"]
 }
